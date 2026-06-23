@@ -1,0 +1,204 @@
+/* Variables de color de diseño moderno */
+:root {
+    --bg-color: #0b0f19;
+    --card-bg: rgba(23, 32, 53, 0.65);
+    --accent-color: #00ffaa;
+    --accent-hover: #00cc88;
+    --text-main: #ffffff;
+    --text-muted: #8a99ad;
+    --border-color: rgba(255, 255, 255, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    background-image: radial-gradient(circle at 50% 50%, #14213d 0%, #0b0f19 100%);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Contenedor de la Tarjeta */
+.converter-container {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 40px;
+    width: 100%;
+    max-width: 550px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+}
+
+h2 span {
+    color: var(--accent-color);
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+}
+
+/* Zona Drop (Arrastrar y Soltar) */
+.drop-zone {
+    border: 2px dashed rgba(0, 255, 170, 0.3);
+    border-radius: 16px;
+    padding: 35px 20px;
+    background: rgba(255, 255, 255, 0.02);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 25px;
+}
+
+.drop-zone:hover, .drop-zone.drag-over {
+    border-color: var(--accent-color);
+    background: rgba(0, 255, 170, 0.04);
+    transform: scale(1.01);
+}
+
+.drop-zone-content svg {
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.drop-zone:hover .drop-zone-content svg {
+    color: var(--accent-color);
+}
+
+.browse-text {
+    color: var(--accent-color);
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.file-info {
+    font-size: 0.95rem;
+    color: var(--accent-color);
+    font-weight: 500;
+    word-break: break-all;
+}
+
+/* Botones */
+.btn-primary {
+    background: var(--accent-color);
+    color: #020617;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 255, 170, 0.2);
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 255, 170, 0.3);
+}
+
+.btn-primary:disabled {
+    background: #1e293b;
+    color: #64748b;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Estado de carga (Spinner) */
+.status-container {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.spinner {
+    width: 30px;
+    height: 30px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top-color: var(--accent-color);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Sección Descarga */
+.download-container {
+    margin-top: 25px;
+    background: rgba(0, 255, 170, 0.06);
+    border: 1px solid rgba(0, 255, 170, 0.2);
+    border-radius: 14px;
+    padding: 20px;
+}
+
+.download-container p {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+}
+
+.btn-download {
+    display: inline-block;
+    background: #ffffff;
+    color: #0b0f19;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 24px;
+    border-radius: 8px;
+    transition: background 0.2s;
+    cursor: pointer;
+}
+
+.btn-download:hover {
+    background: #e2e8f0;
+}
+
+/* Utilidades */
+.hidden {
+    display: none !important;
+}
+/* Nuevo botón para limpiar la interfaz */
+.btn-reset {
+    display: block;
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 15px auto 0 auto;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-reset:hover {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    background: rgba(0, 255, 170, 0.02);
+}
